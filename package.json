@@ -1,0 +1,23 @@
+{
+  "name": "node-azure-tokens",
+  "version": "1.0.0",
+  "description": "working with azure token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jeremygithubuser@github.com/jeremygithubuser/node-azure-tokens.git"
+  },
+  "author": "jeremy daniel bouvier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremygithubuser/node-azure-tokens/issues"
+  },
+  "homepage": "https://github.com/jeremygithubuser/node-azure-tokens#readme",
+  "dependencies": {
+    "jsonwebtoken": "^7.1.9",
+    "node-forge": "^0.6.42"
+  }
+}
