@@ -3,3 +3,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvIqz+4+ER/vNWLON9yv8hIYV737JQ6rCl6Xf
 -----END PUBLIC KEY-----
 
 https://login.windows.net/common/discovery/keys
+
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+
+https://login.windows.net/d540fc2e-db24-4ad7-8c51-99f00b13f134/.well-known/openid-configuration
