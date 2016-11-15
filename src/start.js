@@ -13,7 +13,7 @@ var Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ikk2b0J3NFZ6QkhPcWxlR3J
 //I6oBw4VzBHOqleGrV2AJdA5EmXc
 
 
-var pkPromise = azureOpenId.getAzureAdJwkById("I6oBw4VzBHOqleGrV2AJdA5EmXc");
+/*var pkPromise = azureOpenId.getAzureAdJwkById("I6oBw4VzBHOqleGrV2AJdA5EmXc");
 pkPromise.then(function (jwk) {
     var pem = azureOpenId.getPemFromJwkForge(jwk);
     azureOpenId.printPem(pem,"pk.pem");
@@ -24,7 +24,16 @@ pkPromise.then(function (jwk) {
 .catch(function (err) {
     console.log(err);
 });
-
+*/
+var pkPromise = azureOpenId.getPemByJwkId("I6oBw4VzBHOqleGrV2AJdA5EmXc",true);
+pkPromise.then(function (pem) {
+    jwt.verify(Token,pem, jwtOptions, function (err, decoded) {
+        console.log(decoded)
+    });
+})
+.catch(function (err) {
+    console.log(err);
+});
 
 
 

@@ -1,5 +1,6 @@
 module.exports = function (openIdConfigurationEndPoint) {
     var rp = require('request-promise');
+    var Promise = require('bluebird');
     var jwkToPem = require('jwk-to-pem');
     var forge = require('node-forge');
     var fs = require('fs');
@@ -47,7 +48,17 @@ module.exports = function (openIdConfigurationEndPoint) {
 
         return pem;
     }
+    function getPemByJwkId(kid, printPk) {
+        return getAzureAdJwkById(kid).then(function (jwk) {
 
+            var pem = getPemFromJwkForge(jwk);
+            if (printPk) {
+                printPem(pem, "pk.pem");
+            }
+            return pem;
+
+        });
+    }
     function printPem(pem, path) {
         fs.writeFile(path, pem, function (err) {
             if (err) throw err;
@@ -59,6 +70,7 @@ module.exports = function (openIdConfigurationEndPoint) {
         getAzureAdJwkById: getAzureAdJwkById,
         getPemFromJwk: getPemFromJwk,
         getPemFromJwkForge: getPemFromJwkForge,
+        getPemByJwkId: getPemByJwkId,
         printPem: printPem
     };
 };
